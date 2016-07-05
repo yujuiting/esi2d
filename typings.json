@@ -1,0 +1,7 @@
+{
+  "name": "esi2d",
+  "dependencies": {},
+  "globalDevDependencies": {
+    "jasmine": "registry:dt/jasmine#2.2.0+20160505161446"
+  }
+}

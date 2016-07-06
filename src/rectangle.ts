@@ -20,7 +20,7 @@ export class Rectangle {
 
   height: number;
   
-  getRelativeBoundary(anotherRectangle: Rectangle, validate: boolean = true): RelativeRectangle {
+  getRelativeRectangle(anotherRectangle: Rectangle, validate: boolean = true): RelativeRectangle {
     let containerRectangle: Rectangle = anotherRectangle;
     let relativeRectangle: Rectangle = this;
 

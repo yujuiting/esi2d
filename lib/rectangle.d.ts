@@ -5,7 +5,7 @@ export declare class Rectangle {
     position: Point;
     width: number;
     height: number;
-    getRelativeBoundary(anotherRectangle: Rectangle, validate?: boolean): RelativeRectangle;
+    getRelativeRectangle(anotherRectangle: Rectangle, validate?: boolean): RelativeRectangle;
     intersect(rectangle: Rectangle): boolean;
     containPoint(point: Point): boolean;
     containRectangle(anotherRectangle: Rectangle): boolean;

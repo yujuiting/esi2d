@@ -22,3 +22,8 @@ A package for graphic function.
 import { Point } from 'esi2d';
 let point: Point = new Point(0, 0);
 ```
+
+## Build
+```
+$ npm run build
+```

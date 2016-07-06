@@ -5,7 +5,9 @@
   "main": "lib/index.js",
   "scripts": {
     "test": "karma start karma-config.js",
-    "watch": "tsc -w -p ./src"
+    "watch": "tsc -w -p ./src",
+    "prebuild": "tsc -p ./src",
+    "build": "browserify lib/index.js --standalone Esi2d > dist/esi2d.js"
   },
   "author": "",
   "license": "ISC",

@@ -54,7 +54,7 @@ describe('Esi2D.Color', function () {
     it('should return rgba string', function () {
       let color = new Color(255, 255, 255);
 
-      expect(color.toString()).toEqual('rgba(255,255,255,255)');
+      expect(color.toString()).toEqual('rgba(255,255,255,1)');
     });
 
   });

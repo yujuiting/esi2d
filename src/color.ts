@@ -85,7 +85,7 @@ export class Color {
   }
 
   toString(): string {
-    return 'rgba(' + this.red + ',' + this.green + ',' + this.blue + ',' + this.alpha + ')';
+    return 'rgba(' + this.red + ',' + this.green + ',' + this.blue + ',' + this.alpha / 255 + ')';
   }
 
   toHexString(): string {

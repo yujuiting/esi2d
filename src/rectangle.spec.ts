@@ -15,16 +15,12 @@ describe('Esi2D.Rectangle', function () {
 
 
   describe('#getRelativeBoundary', function () {
-
-
-    beforeEach(function () {
-      this.rectangle = new Rectangle(20, 10, 30, 40);
-      this.container = new Rectangle(0, 0, 100, 100);
-    });
+    let rectangle = new Rectangle(20, 10, 30, 40);
+    let container = new Rectangle(0, 0, 100, 100);
 
 
     it('should return relative boundary', function () {
-      var relativeBoundary = this.rectangle.getRelativeBoundary(this.container);
+      var relativeBoundary = rectangle.getRelativeRectangle(container);
 
       expect(relativeBoundary.top).toEqual(0.1);
       expect(relativeBoundary.left).toEqual(0.2);
@@ -34,7 +30,7 @@ describe('Esi2D.Rectangle', function () {
 
 
     it('should resolve container problem', function () {
-      var relativeBoundary = this.container.getRelativeBoundary(this.rectangle);
+      var relativeBoundary = container.getRelativeRectangle(rectangle);
 
       expect(relativeBoundary.top).toEqual(0.1);
       expect(relativeBoundary.left).toEqual(0.2);

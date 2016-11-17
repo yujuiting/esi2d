@@ -1,3 +1,4 @@
+var istanbul = require('browserify-istanbul');
 // Karma configuration
 
 module.exports = function(config) {
@@ -11,10 +12,19 @@ module.exports = function(config) {
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
     frameworks: ['browserify', 'jasmine'],
 
+    plugins: [
+      require('karma-coverage'),
+      require('karma-jasmine'),
+      require('karma-mocha-reporter'),
+      require('karma-sourcemap-loader'),
+      require('karma-browserify'),
+      require('karma-chrome-launcher')
+    ],
+
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['progress'],
+    reporters: ['mocha', 'coverage'],
 
 
     // start these browsers
@@ -23,12 +33,12 @@ module.exports = function(config) {
 
 
     // enable / disable watching file and executing tests whenever any file changes
-    autoWatch: true,
+    autoWatch: false,
 
 
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
-    singleRun: false,
+    singleRun: true,
 
 
     // enable / disable colors in the output (reporters and logs)
@@ -38,12 +48,12 @@ module.exports = function(config) {
     // list of files / patterns to load in the browser
     files: [
       // Testing spec
-      'src/**/*.spec.ts',
+      'src/**/*.ts',
     ],
 
     
     preprocessors: {
-      'src/**/*.spec.ts': ['browserify']
+      'src/**/*.ts': ['browserify', 'coverage', 'sourcemap']
     },
 
 
@@ -55,6 +65,17 @@ module.exports = function(config) {
     browserify: {
       debug: true,
       plugin: [['tsify', { target: 'es5'}]]
+    },
+
+    coverageReporter: {
+      dir: './coverage/',
+      reporters: [
+        { type: 'text-summary' },
+        { type: 'json' },
+        { type: 'html' },
+        { type: 'json',      subdir: '.', file: 'coverage-final.json' },
+        { type: 'cobertura', subdir: '.', file: 'cobertura.xml' },
+      ]
     },
 
 
